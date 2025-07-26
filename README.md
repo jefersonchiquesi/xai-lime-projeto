@@ -1,72 +1,110 @@
-🧠 Decifrando a Caixa Preta: Tornando Modelos de IA Explicáveis com LIME
-📌 Contextualização do Problema e Objetivos
-No cenário atual de transformação digital, modelos preditivos são amplamente utilizados para decisões críticas, como concessão de crédito. Apesar de sua eficácia, muitos desses modelos operam como "caixas pretas", dificultando a compreensão de como uma decisão foi tomada.
+# 🧠 Decifrando a Caixa Preta: Tornando Modelos de IA Explicáveis com LIME
 
-Este projeto tem como objetivo aplicar técnicas de Explainable Artificial Intelligence (XAI) utilizando a biblioteca LIME para explicar as decisões de um modelo de classificação binária no contexto de análise de crédito. O foco é gerar explicações locais, mostrando quais atributos mais influenciaram a decisão para um determinado cliente.
+Este repositório apresenta um projeto acadêmico que explora os fundamentos da **Inteligência Artificial Explicável (XAI)**, com foco na aplicação prática da biblioteca **LIME** para tornar mais compreensíveis os resultados de um modelo preditivo de crédito bancário.
 
-🤖 Modelo Preditivo Utilizado
-Foi desenvolvido um modelo de aprendizado de máquina supervisionado para classificação de risco de crédito. As principais etapas foram:
+## 👤 Autor
 
-Pré-processamento do dataset (Statlog German Credit Data ou Lending Club Loan Data)
+**Jeferson Chiquesi**  
+Estudante de Gestão da Tecnologia da Informação – UniFECAF  
+GitHub: [@jefersonchiquesi](https://github.com/jefersonchiquesi)
 
-Divisão entre conjunto de treino e teste
+---
 
-Treinamento com o modelo: RandomForestClassifier (ou o modelo que você usou)
+## 🎯 Objetivo
 
-Avaliação de performance com métricas como acurácia, precisão e matriz de confusão
+Tornar um modelo de classificação de crédito mais transparente, revelando **quais características influenciam as decisões** do algoritmo. A técnica utilizada é o **LIME (Local Interpretable Model-agnostic Explanations)**, capaz de gerar explicações locais mesmo em modelos considerados "caixas-pretas".
 
-🧪 Explicações Geradas pelo LIME
-Utilizamos o LIME (Local Interpretable Model-agnostic Explanations) para explicar predições individuais do modelo.
+---
 
-As explicações mostram quais atributos impactaram positivamente ou negativamente a decisão.
+## 🗂️ Conteúdo do Projeto
 
-Cada cliente recebe uma explicação visual dos principais fatores (ex: renda, histórico de pagamento, idade).
+- `notebook/lime_credit_analysis.ipynb`: Jupyter Notebook com todo o pipeline, do pré-processamento à explicação via LIME.
+- `outputs/`: Contém imagens com explicações geradas pelo LIME.
+- `requirements.txt`: Dependências do projeto.
+- `README.md`: Este documento.
 
-Isso torna o modelo mais transparente e aumenta a confiança de stakeholders como analistas e tomadores de decisão.
+---
 
-Foram geradas explicações como:
+## 🧪 Tecnologias e Bibliotecas
 
-Cliente #5: recusa de crédito explicada por alto número de dívidas e curto tempo de emprego.
+- Python 3.11+
+- Pandas, NumPy, Scikit-learn
+- Matplotlib, Seaborn
+- LIME
+- Jupyter Notebook
 
-Cliente #17: aprovação explicada por renda elevada e bom histórico de crédito.
+---
 
-Inclua prints dessas explicações no repositório!
+## 📊 Dataset Utilizado
 
-⚠️ Limitações, Importância e Contribuições
-Limitações:
-O LIME foca em explicações locais, ou seja, cada predição individual tem uma explicação diferente.
+- **German Credit Data** – Disponível na UCI Machine Learning Repository.
+- Atributos: status de crédito, idade, histórico bancário, valor do empréstimo, entre outros.
+- Classes: `Bom` ou `Ruim`.
 
-Pode apresentar inconsistências se os dados tiverem alta dimensionalidade ou forem ruidosos.
+---
 
-Importância da Interpretabilidade:
-Transparência é fundamental em áreas sensíveis como crédito, saúde ou justiça.
+## 🧠 Modelo Preditivo
 
-Explicações claras ajudam a evitar viés algorítmico e melhoram a confiança nos sistemas de IA.
+- **Algoritmo:** Random Forest
+- **Tarefa:** Classificação binária (crédito bom ou ruim)
+- **Métrica Avaliada:** Acurácia
 
-Contribuições do Projeto:
-Demonstração prática do uso de XAI com LIME.
+---
 
-Aumenta a compreensão de como decisões automatizadas são tomadas.
+## 🔍 Explicações com LIME
 
-Oferece base para futuras aplicações em sistemas críticos.
+A biblioteca LIME foi utilizada para explicar **instâncias individuais** do conjunto de teste. Cada explicação mostra:
 
-🚀 Como Executar o Projeto
-Clone o repositório:
+- As **principais variáveis** que influenciaram a predição;
+- O **peso e direção** de cada variável na decisão;
+- Representação gráfica de forma intuitiva.
 
-bash
-Copiar
-Editar
-git clone https://github.com/jefersonchiquesi/xai-lime-projeto.git
-cd xai-lime-projeto
+---
+
+## 💡 Resultados e Insights
+
+- O LIME permitiu visualizar o impacto de variáveis como `duration`, `credit_amount`, `age`, e `checking_status` na decisão do modelo.
+- Evidenciou que mesmo modelos complexos podem ser explicados de forma **transparente e acessível**.
+- Explicações ajudam a criar **confiança no modelo**, essencial em setores sensíveis como o financeiro.
+
+---
+
+## ⚠️ Limitações
+
+- O LIME gera explicações **locais**, ou seja, válidas apenas para instâncias específicas.
+- Pode ser sensível a ruído ou atributos altamente correlacionados.
+- Não substitui uma análise global do modelo.
+
+---
+
+## 🔐 Ética, Segurança e Governança
+
+- O projeto ressalta a importância da **explicabilidade em modelos de decisão automatizada**, especialmente em contextos com alto impacto social.
+- Contribui para um uso mais responsável da IA.
+
+---
+
+## 🧭 Como Rodar o Projeto
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/jefersonchiquesi/xai-lime-projeto.git
+   cd xai-lime-projeto
+python -m venv .venv
+source .venv/bin/activate  # ou .venv\Scripts\activate no Windows
 Instale as dependências:
 
 bash
 Copiar
 Editar
-pip install -r requirements.txt
-Execute o script principal:
+pip install -r requirements.txtExecute o Jupyter Notebook:
 
 bash
 Copiar
 Editar
-python main.py
+jupyter notebook
+
+
+🤝 Contribuições
+Este projeto foi desenvolvido como parte da disciplina de Explainable AI e está aberto para sugestões e melhorias.
+
